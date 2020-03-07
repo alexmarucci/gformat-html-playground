@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app h-screen flex font-sans overflow-hidden">
+  <div id="app" class="app h-screen flex font-mono overflow-hidden">
     <div
       class="fixed h-screen w-screen bg-black z-20 opacity-75 overflow-hidden"
       v-if="showSidebar && isMobile"
@@ -15,42 +15,26 @@
         <a href="#" class="text-center">
           <img
             src="./assets/logo.png"
-            class="w-48 px-4 py-3"
-            alt="PrettyHtml"
+            class="w-24 px-4 py-3"
+            alt="GFormat HTLM"
           />
         </a>
         <div class="settings px-4 text-grey-darkest">
-          <div class="section">
+
             <p class="text-sm text-center mt-1">
-              The formatter for the modern web
+              An humble HTML Formatter
             </p>
-            <h3
-              class="section-name mt-8 font-medium tracking-wide text-xxs text-grey-dark uppercase"
-            >
-              Editor
-            </h3>
-            <div class="section-item flex items-center mt-4">
-              <div class="setting-label w-32 text-sm">Source type</div>
-              <div class="setting-input flex-1 ml-4">
-                <select
-                  class="bg-grey-lighter text-grey-darker border font-medium w-full text-sm py-1 pl-2 rounded focus:outline-none focus:shadow-outline"
-                >
-                  <option value="markup">HTML-like</option>
-                  <option value="js" disabled>Javascript</option>
-                </select>
-              </div>
-            </div>
-            <div class="section-item flex items-center mt-1">
-              <div class="setting-label w-32 text-sm">Line Numbers</div>
-              <AppToggle v-model="linenumbers" class="ml-4"></AppToggle>
-            </div>
-          </div>
           <div class="section mt-8">
             <h3
               class="section-name font-medium tracking-wide text-xxs text-grey-dark uppercase"
             >
               Settings
             </h3>
+               <button @click="resetToDefaults"
+                      class="mt-2 text-xs text-grey-dark hover:text-grey-darkest">
+              Reset to defaults
+            </button>
+
             <div class="section-item flex items-center mt-4">
               <div class="setting-label w-32 text-sm">Print width</div>
               <div class="setting-input w-16 ml-4">
@@ -94,7 +78,7 @@
               <AppToggle v-model="opts.sortAttributes" class="ml-4"></AppToggle>
             </div>
 
-            <div class="section-item flex items-center">
+            <div class="section-item flex items-center" style="display: none">
               <div class="setting-label w-32 text-sm text-grey">
                 Use Prettier
               </div>
@@ -104,12 +88,29 @@
                 disabled
               ></AppToggle>
             </div>
-            <button
-              @click="resetToDefaults"
-              class="mt-2 text-xs text-grey-dark hover:text-grey-darkest"
+          </div>
+          <div class="section">
+
+            <h3
+              class="section-name mt-8 font-medium tracking-wide text-xxs text-grey-dark uppercase"
             >
-              Reset to defaults
-            </button>
+              Editor
+            </h3>
+            <div class="section-item flex items-center mt-4">
+              <div class="setting-label w-32 text-sm">Source type</div>
+              <div class="setting-input flex-1 ml-4">
+                <select
+                  class="bg-grey-lighter text-grey-darker border font-medium w-full text-xs py-1 pl-2 rounded focus:outline-none focus:shadow-outline"
+                >
+                  <option value="markup">HTML-like</option>
+                  <option value="js" disabled>Javascript</option>
+                </select>
+              </div>
+            </div>
+            <div class="section-item flex items-center mt-1">
+              <div class="setting-label w-32 text-sm">Line Numbers</div>
+              <AppToggle v-model="linenumbers" class="ml-4"></AppToggle>
+            </div>
           </div>
         </div>
 
@@ -132,32 +133,23 @@
               </span>
             </div>
             <div class="section-item leading-normal flex items-center mt-4">
-              <p class="text-sm font-normal">
-                Offline Playground for
+              <p class="text-xxs font-normal">
+                - Playground for
                 <a
-                  href="https://github.com/prettyhtml/prettyhtml"
-                  class="no-underline font-bold text-grey-dark"
+                  href="https://github.com/alexmarucci/gformat-html"
+                  class="no-underline hover:underline font-bold text-grey-dark"
                   target="_blank"
                 >
-                  Prettyhtml
+                  gformat-html
                 </a>
                 <br />
-                Source code on
+                - Source code on
                 <a
-                  href="https://github.com/prettyhtml/pretty-html-web"
-                  class="no-underline font-bold text-grey-dark"
+                  href="https://github.com/alexmarucci/gformat-html-playground"
+                  class="no-underline hover:underline font-bold text-grey-dark"
                   target="_blank"
                 >
                   GitHub
-                </a>
-                <br />
-                Built w/ Vue &middot; by
-                <a
-                  href="https://www.mesutkoca.com"
-                  class="no-underline font-bold text-grey-dark"
-                  target="_blank"
-                >
-                  Mesut Koca
                 </a>
               </p>
             </div>
@@ -176,8 +168,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"><g fill="currentColor"><path v-if="showSidebar" d="M20.05 11H5.91l1.3-1.29a1 1 0 0 0-1.42-1.42l-3 3a1 1 0 0 0 0 1.42l3 3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42L5.91 13h14.14a1 1 0 0 0 .95-.95V12a1 1 0 0 0-.95-1z"/><rect x="3" y="11" width="18" height="2" rx=".95" ry=".95"/><rect x="3" y="17" width="18" height="2" rx=".95" ry=".95"/><rect x="3" y="5" width="18" height="2" rx=".95" ry=".95"/></g></svg>
         </button>
         <div v-if="!showSidebar" class="logo-mobile ml-6 flex items-center">
-          <a href="#" class="logo w-32 -my-1 ">
-            <img src="./assets/logo.png" class="" alt="PrettyHtml" />
+          <a href="#" class="logo w-10 -my-1">
+            <img src="./assets/logo.png" class="" alt="GFormat HTML" />
           </a>
         </div>
         <div class="ml-auto hidden lg:flex items-center">
@@ -302,7 +294,7 @@ export default {
       showSidebar: true,
       prettifier: null,
       prettyHtmlVersion: preval`
-        module.exports = require('../package.json').devDependencies['@starptech/prettyhtml'].substr(1);
+        module.exports = require('../package.json').devDependencies['gformat-html'].substr(1);
       `,
       linenumbers: true,
       opts: { ...defaultOpts },

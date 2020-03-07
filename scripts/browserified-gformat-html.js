@@ -3,10 +3,10 @@ const path = require("path")
 const browserify = require("browserify")
 const uglify = require("uglify-es")
 
-const pkgName = "@starptech/prettyhtml"
-const pkgFileName = "prettyhtml.browserified.min.js"
+const pkgName = "gformat-html"
+const pkgFileName = "gformathtml.browserified.min.js"
 const pkgPath = path.resolve(__dirname, "../public/" + pkgFileName)
-const umdName = "prettyhtml"
+const umdName = "gformathtml"
 
 const b = browserify([require.resolve(pkgName)], {
   standalone: umdName,

@@ -1,18 +1,18 @@
-import startPrettyHtml from "workerize-loader!./prettyhtml.worker.js";
+import startGformatHtml from "workerize-loader!./gformathtml.worker.js";
 
-let prettyhtmlWorker = null;
+let gformathtmlWorker = null;
 // todo: prettier worker
 
 export function getWorkers() {
-  if (prettyhtmlWorker === null) {
+  if (gformathtmlWorker === null) {
     // eslint-disable-next-line no-console
-    console.log("[pretty-html-worker]: Worker hasn't initialized yet.");
+    console.log("[gformat-html-worker]: Worker hasn't initialized yet.");
   }
   return {
-    prettyhtml: prettyhtmlWorker,
+    prettyhtml: gformathtmlWorker,
   };
 }
 
 export function startWorkers() {
-  prettyhtmlWorker = startPrettyHtml();
+  gformathtmlWorker = startGformatHtml();
 }
