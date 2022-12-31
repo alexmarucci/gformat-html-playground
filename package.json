@@ -19,16 +19,16 @@
   "devDependencies": {
     "gformat-html": "^0.1.0",
     "@fullhuman/postcss-purgecss": "^1.2.0",
-    "@vue/cli-plugin-babel": "^3.7.0",
-    "@vue/cli-plugin-eslint": "^3.7.0",
-    "@vue/cli-plugin-pwa": "^3.7.0",
-    "@vue/cli-service": "3.7.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-plugin-pwa": "^5.0.8",
+    "@vue/cli-service": "5.0.8",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-plugin-preval": "^3.0.1",
     "browserify": "^16.2.3",
     "purgecss-whitelister": "^2.4.0",
     "uglify-es": "^3.3.9",
     "vue-template-compiler": "^2.6.10",
-    "workerize-loader": "^1.0.4"
+    "workerize-loader": "^1.3.0"
   }
 }
